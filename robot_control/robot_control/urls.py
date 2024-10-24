@@ -16,14 +16,16 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from . import views
+from control import views
+    
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('forward/', views.forward),
-    path('backward/', views.backward),
-    path('left/', views.left),
-    path('right/', views.right),
-    path('stop/', views.stop),
+    path('', views.index, name='index'),
+    path('control/forward/', views.forward, name='forward'),
+    path('control/backward/', views.backward, name='back'),
+    path('control/left/', views.left, name='left'),
+    path('control/right/', views.right, name='right'),
+    path('control/stop/', views.stop, name='stop'),
     path('video_feed/', views.video_feed),
 ]

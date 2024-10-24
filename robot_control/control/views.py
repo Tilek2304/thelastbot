@@ -4,6 +4,12 @@ from .gpio_control import move_forward, move_backward, turn_left, turn_right, st
 import cv2
 from django.http import StreamingHttpResponse
 
+
+def index(request):
+    return render(request, 'control/index.html')
+
+
+
 def forward(request):
     move_forward()
     return JsonResponse({"status": "Moving forward"})
